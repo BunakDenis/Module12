@@ -1,11 +1,8 @@
 package main.module12.task2;
 
-import main.module12.example.ProcessThread;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class NumberReadPrintTests {
 
@@ -23,9 +20,7 @@ public class NumberReadPrintTests {
         }*/
 
 
-
-
-       List<NumberPrinter> threads = new ArrayList<>();
+        List<NumberPrinter> threads = new ArrayList<>();
 
         NumberPrinter fizz = new NumberPrinter((n) -> {
             if (n % 3 == 0) {
@@ -58,7 +53,7 @@ public class NumberReadPrintTests {
 
         for (NumberPrinter thread : threads) {
             try {
-                Thread.sleep(100l);
+                Thread.sleep(250l);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -66,6 +61,7 @@ public class NumberReadPrintTests {
         }
 
         for (NumberPrinter thread : threads) {
+
             thread.start();
         }
     }

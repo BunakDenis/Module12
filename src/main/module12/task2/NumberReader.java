@@ -2,7 +2,7 @@ package main.module12.task2;
 
 import java.util.concurrent.BlockingQueue;
 
-public class NumberReader implements Runnable {
+public class NumberReader extends Thread {
 
     private int number;
 
@@ -18,7 +18,7 @@ public class NumberReader implements Runnable {
         for (int i = 1; i <= this.number; i++) {
             Integer element = i;
             try {
-                Thread.sleep(250);
+                Thread.sleep(100l);
                 digits.put(element);
                 System.out.println("Put digit " + i);
             } catch (InterruptedException e) {

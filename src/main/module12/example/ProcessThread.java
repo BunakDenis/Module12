@@ -1,5 +1,7 @@
 package main.module12.example;
 
+import main.module12.task2.NumberProcessor;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ProcessThread extends Thread {

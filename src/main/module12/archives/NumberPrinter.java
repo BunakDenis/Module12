@@ -1,4 +1,4 @@
-package main.module12.task2;
+package main.module12.archives;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -12,6 +12,7 @@ public class NumberPrinter extends Thread {
     public NumberPrinter(NumberProcessor processor) {
         this.processor = processor;
     }
+
     public void process(int number) {
         this.number = number;
         flag.set(true);
@@ -21,20 +22,17 @@ public class NumberPrinter extends Thread {
     public void run() {
         while (flag.get()) {
 
-            synchronized (this) {
+            for (int i = 0; i <= number; i++) {
+                try {
+                    Thread.sleep(250l);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-                for (int i = 0; i <= number; i++) {
-                    try {
-                        Thread.sleep(250l);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                processor.process(i);
 
-                    processor.process(i);
-
-                    if (i == number) {
-                        flag.set(false);
-                    }
+                if (i == number) {
+                    flag.set(false);
                 }
             }
         }

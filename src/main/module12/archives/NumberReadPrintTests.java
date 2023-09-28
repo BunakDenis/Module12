@@ -1,5 +1,7 @@
-package main.module12.task2;
+package main.module12.archives;
 
+
+import main.module12.archives.NumberPrinter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +63,6 @@ public class NumberReadPrintTests {
         }
 
         for (NumberPrinter thread : threads) {
-
             thread.start();
         }
     }
